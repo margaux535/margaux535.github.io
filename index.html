@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Anniversaire Sara!</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #animation-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .confetti {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: #ffcc00;
+            animation: fall 2s linear infinite;
+        }
+
+        .cake {
+            font-size: 4em;
+            position: absolute;
+            margin-top: -200px; 
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="animation-container">
+        <h1>Joyeux Anniversaire Sara!</h1>
+        <!-- Ajoutez plus de confettis en ajustant les positions -->
+        <!-- Utilisez JavaScript pour générer des positions aléatoires -->
+        <script>
+            function getRandomPosition(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement("div");
+                confetti.className = "confetti";
+                confetti.style.top = "0";
+                confetti.style.left = `${getRandomPosition(0, 100)}vw`;
+                confetti.style.animationDelay = `${getRandomPosition(0, 2)}s`;
+                document.getElementById("animation-container").appendChild(confetti);
+            }
+        </script>
+
+        <!-- Ajout du gâteau (emoji) -->
+        <div class="cake">&#127874;</div>
+         <!-- Ajout de la musique -->
+            <audio src="https://cdn.pixabay.com/audio/2023/06/26/audio_cd13a5db91.mp3" crossorigin="anonymous" controls>
+        </audio>
+    </div>
+</body>
+</html>
